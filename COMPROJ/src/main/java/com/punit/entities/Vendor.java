@@ -1,4 +1,7 @@
+//Devloped by PUNIT 05-03-2026
 package com.punit.entities;
+
+import java.util.List;
 
 import jakarta.persistence.*;
 
@@ -23,15 +26,15 @@ public class Vendor {
     @Column(name = "PHONE")
     private String phone;
 
-    @ManyToOne
-    @JoinColumn(name = "ADDRESS_NO", referencedColumnName = "ADDRESS_ID")
-    private Address address;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "VENDOR", referencedColumnName = "VENDOR_ID")
+    private List<Address> address;
 
     public Vendor() {
     }
 
     public Vendor(Long vendorId, String name, String city,
-                  String state, String phone, Address address) {
+                  String state, String phone, List<Address> address) {
         this.vendorId = vendorId;
         this.name = name;
         this.city = city;
@@ -80,11 +83,11 @@ public class Vendor {
         this.phone = phone;
     }
 
-    public Address getAddress() {
+    public List<Address> getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(List<Address> address) {
         this.address = address;
     }
 }

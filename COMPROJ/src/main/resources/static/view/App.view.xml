@@ -1,0 +1,4 @@
+<!--__Developed__ by PUNIT 06-03-2026-->
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" controllerName="punit.controller.App">
+<App id="idApp"/>
+</mvc:View>
